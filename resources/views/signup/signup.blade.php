@@ -23,7 +23,12 @@
         </div>
        
        @endif
-        
+       @if(isset($message))
+        <div class="alert alert-success alert-dismissable">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             {{$message}}
+        </div>
+       @endif 
 
        
         <form class="form-signup" method="post" action="/signup">
@@ -42,7 +47,7 @@
 </div>
  <div class="form-group">
                 <label for="inputConfPassword" class="sr-only">Password</label>
-                <input type="password" name="inputConfPassword" id="inputConfPassword" class="form-control" placeholder="Confirm Password" required>
+                <input type="password" name="userPassword_confirmation" id="userPassword_confirmation" class="form-control" placeholder="Confirm Password" required>
 </div>
  <div class="form-group">
                 <label for="country" class="sr-only">Country</label>
