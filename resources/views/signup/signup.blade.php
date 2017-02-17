@@ -35,11 +35,11 @@
             <h2 class="form-signup-heading">Sign Up Form</h2>
              <div class="form-group">
                 <label for="inputName" class="sr-only">Your Full Name</label>
-                <input type="text" id="inputName" name="inputName" class="form-control" placeholder="Full Name" required autofocus>
+                <input type="text" id="inputName" name="inputName" class="form-control" placeholder="Full Name" value="{{old('inputName')}}"" required autofocus>
             </div>
              <div class="form-group">
                 <label for="inputEmail" class="sr-only">Email address</label>
-                <input type="email" id="inputEmail" name="userEmail" class="form-control" placeholder="Email address" required autofocus>
+                <input type="email" id="inputEmail" name="userEmail" class="form-control" placeholder="Email address" value="{{old('userEmail')}}" required autofocus>
 </div>
  <div class="form-group">
                 <label for="inputPassword" class="sr-only">Password</label>
@@ -51,7 +51,7 @@
 </div>
  <div class="form-group">
                 <label for="country" class="sr-only">Country</label>
-                <input type="text" name="country" id="country" class="form-control" placeholder="Country" required>
+                <input type="text" name="country" id="country" class="form-control" placeholder="Country" value="{{old('userEmail')}}" required>
 </div>
                 <button class="btn btn-primary btn-block" type="submit" id="formbtn">Next</button>
                 {{ csrf_field() }}
