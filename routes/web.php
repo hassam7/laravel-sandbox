@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('signup', 'SignUpController@index');
+Route::post('signup', 'SignUpController@create');
