@@ -14,7 +14,15 @@
     <body>
     <div class="container">
        
-      
+       @if( count($errors) >0) 
+        <div class="alert alert-danger alert-dismissable">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+             @endforeach
+        </div>
+       
+       @endif
         
 
        <div class="alert alert-success alert-dismissable">
