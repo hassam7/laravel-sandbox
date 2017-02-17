@@ -14,13 +14,13 @@
     <body>
     <div class="container">
        
-       {{ @if( count($errors) >0) 
+        @if( count($errors) >0 ) 
         <div class="alert alert-danger alert-dismissable">
              <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
              <strong>Either Username or Password was Incorrect</strong>
         </div>
        
-       @endif }}
+       @endif 
       
 
            
