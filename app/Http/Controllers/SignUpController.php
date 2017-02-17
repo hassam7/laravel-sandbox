@@ -11,9 +11,14 @@ class SignUpController extends Controller
         return view('signup.signup');
     }
 
-    public function create(){
+    public function create(Request $request){
+        $temp = $this->validate($request,[
+            'inputName'=>'required|max:10|min:2|string',
+            'userEmail'=>'required|max:20|min:2|email|distinct',
+            'userPassword'=>'required|min:6',
+            'country'=>'required'
+        ]);
        
-       
-        return view('signup.signup');
+        // return view('signup.signup');
     }
 }
