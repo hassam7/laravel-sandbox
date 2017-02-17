@@ -24,7 +24,15 @@ class SignUpController extends Controller
                 'userPassword'=>'required|min:6|confirmed',
                 'country'=>'required'
             );
-            $validator = Validator::make(Input::all(),$rules);
+
+            $messages = [
+                'inputName.required'=> 'We need your name',
+                'inputName.max'=> 'Your name can not be greater than 20 chars',
+                'country.required'=>'Your Country'
+                
+            ];
+
+            $validator = Validator::make(Input::all(),$rules,$messages);
 
             if($validator->fails()){
                 $messages = $validator->messages();
