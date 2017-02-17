@@ -62,7 +62,7 @@
                             @if ($errors->has('country')) <p class="help-block">{{ $errors->first('country') }}</p> @endif
                             
             </div>
-                <button class="btn btn-primary btn-block" type="submit" id="formbtn">Next</button>
+                <button class="btn btn-primary btn-block" type="submit" id="formbtn">Sign Up</button>
                 {{ csrf_field() }}
         </form>
 
