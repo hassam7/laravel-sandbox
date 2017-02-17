@@ -30,4 +30,11 @@ class SignUpRequest extends FormRequest
             'country'=>'required'
         ];
     }
+    public function messages(){
+        return [
+            'inputName.required'=> 'We need your name',
+            'inputName.max'=> 'Your name can not be greater than 20 chars',
+            'country.required'=>'Your Country'
+        ];
+    }
 }
