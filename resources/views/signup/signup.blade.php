@@ -9,7 +9,8 @@
 
     <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
     <script src="{{asset('js/app.js')}}" type="text/javascript"></script>
-   
+    <script src="{{asset('js/jquery.validate.js')}}" type="text/javascript"></script>
+    <script src="{{asset('js/additional-methods.js')}}" type="text/javascript"></script>
     </head>
     <body>
     <div class="container">
@@ -70,4 +71,9 @@
 
 
     </body>
+    <script>
+        $(document).ready(function(){
+            $('form').validate();
+        });
+    </script>
 </html>
