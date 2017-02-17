@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Validator;
 
 class SignUpController extends Controller
 {
-    //
+    //TODO: Add client side validation
     public function index(){
         return view('signup.signup');
     }
