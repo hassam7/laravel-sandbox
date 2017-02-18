@@ -18,4 +18,10 @@ Route::get('/', function () {
 Route::get('signup', 'SignUpController@index');
 Route::post('signup', 'SignUpController@create');
 Route::get('/signin', 'LoginController@index');
+Route::get('/signout', 'LoginController@logoff')->name('logoff');
 Route::post('/signin', 'LoginController@login');
+Route::get('/authorized', 'QuoteController@index')->name('home');
+Route::get('/authorized/detail/{id}', 'QuoteController@detail')->name('detail');
+Route::get('/authorized/edit/{id}', 'QuoteController@edit')->name('edit');
+Route::get('/authorized/delete/{id}', 'QuoteController@delete')->name('delete');
+Route::get('/authorized/create', 'QuoteController@create')->name('create');
