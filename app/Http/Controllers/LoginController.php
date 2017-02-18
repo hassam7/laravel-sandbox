@@ -30,9 +30,11 @@ class LoginController extends Controller
         $validator = Validator::make(Input::all(),$rules);
         $email = Input::get('userEmail');
         $password = Input::get('userPassword');
-        $temp = User::where('email',$email)->where('password',$password)->get();
-        if(!$temp->isEmpty()){
-            session(['loggedin'=>true]);
+        $temp = User::where('email',$email)->where('password',$password)->first();
+
+       
+        if($temp != null){
+            session(['loggedin'=>true,'uid'=>$temp->id]);
             return redirect()->route('home');
             
         }else{
