@@ -15,6 +15,11 @@ class MyMiddleWare
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+        $logged_in = $request->session()->get('loggedin');
+        if($logged_in==null){
+             return redirect('/');
+        }
+        
+        return $next($request);                    
     }
 }
