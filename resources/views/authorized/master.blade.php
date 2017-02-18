@@ -29,9 +29,12 @@
             </div>
         @endif
     @endif
+
+       
     <div class="container">
         <div class="col-md-3">
             <ul class="list-unstyled">
+                <li><a href="{{route('home')}}">Home</li>            
                 <li><a href="{{route('create')}}">Add New Quote</li>
                 <li><a href="{{route('logoff')}}">Log Out</a></li>
             </ul>
