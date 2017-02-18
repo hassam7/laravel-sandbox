@@ -11,9 +11,16 @@ class LoginController extends Controller
 {
     //
     public function index(){
+        if(session('loggedin')==true){
+            return redirect()->route('home');
+        }
         return view('login.login');
     }
 
+    public function logoff(){
+        session(['loggedin'=>false]);
+        return redirect('/');
+    }
     public function login(){
         $rules = [
                 'userEmail'=>'required|email',
@@ -25,7 +32,9 @@ class LoginController extends Controller
         $password = Input::get('userPassword');
         $temp = User::where('email',$email)->where('password',$password)->get();
         if(!$temp->isEmpty()){
-            return "Logged In";
+            session(['loggedin'=>true]);
+            return redirect()->route('home');
+            
         }else{
           return view('login.login')->withErrors("Invalid Username or Password<br/>Try Again");
         }
