@@ -27,10 +27,10 @@ class QuoteController extends Controller
          $quote = Quote::find($id);
          if($quote!=null){
             if($quote->delete())
-                return view('authorized.detail',['status'=>'success','message'=>'Deleted Successfully']);
+                return view('authorized.delete',['status'=>'success','message'=>'Deleted Successfully']);
          }
         else
-            return view('authorized.detail',['status'=>'failure','message'=>'Error Occured...Please try again']);    
+            return view('authorized.delete',['status'=>'failure','message'=>'Error Occured...Please try again']);    
     }
 
     public function create(){
