@@ -25,8 +25,10 @@ class QuoteController extends Controller
 
      public function delete($id){
          $quote = Quote::find($id);
-         if($quote->delete())
-            return view('authorized.detail',['status'=>'success','message'=>'Deleted Successfully']);
+         if($quote!=null){
+            if($quote->delete())
+                return view('authorized.detail',['status'=>'success','message'=>'Deleted Successfully']);
+         }
         else
             return view('authorized.detail',['status'=>'failure','message'=>'Error Occured...Please try again']);    
     }

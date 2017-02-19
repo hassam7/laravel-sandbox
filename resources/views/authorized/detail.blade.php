@@ -26,26 +26,22 @@
                 <li><a href="{{route('logoff')}}">Log Out</a></li </ul>
         </div>
         <div class="col-md-9">
+            @if(isset($status))
+                @if($status=='success')
+                    <div class="alert alert-success alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Quote deleted successfully</strong>
+                    </div>
+                @else
+                    <div class="alert alert-danger alert-dismissable">
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                        <strong>Can not delete quote</strong>
+                    </div>
+                @endif
+                
+            @endif
 
-            <table class="table table-striped table-bordered">
-                <tr>
-                    <th>ID</th>
-                    <th>Quote</th>
-                    <th>Author</th>
-                </tr>
-
-                <tr>
-                    <td>{{$Quote->id}}</td>
-                    <td>{{$Quote->text}}</td>
-                    <td>{{$Quote->author}}</td>
-                </tr>
-            </table>
-
-
-
-
-
-
+        
         </div>
 
 
