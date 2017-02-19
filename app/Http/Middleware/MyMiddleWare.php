@@ -17,7 +17,7 @@ class MyMiddleWare
     {
         $logged_in = $request->session()->get('loggedin');
         if($logged_in==null){
-             return redirect('/');
+             return redirect('/restricted');
         }
         
         return $next($request);                    
