@@ -69,7 +69,9 @@
             </table>
 
         @endif
-
+        <div class="text-center">
+            {{$Quotes->links()}}
+        </div>
         
 
 

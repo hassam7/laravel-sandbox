@@ -12,7 +12,7 @@ class QuoteController extends Controller
         $this->middleware('custom_auth');
    }
     public function index(){
-        return view('authorized.master')->with('Quotes',Quote::where('user_id',session('uid'))->get());
+        return view('authorized.master')->with('Quotes',Quote::where('user_id',session('uid'))->paginate(20));
     }
 
     public function detail($id){       
