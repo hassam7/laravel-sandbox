@@ -26,3 +26,6 @@ Route::get('/authorized/edit/{id}', 'QuoteController@edit')->name('edit');
 Route::get('/authorized/delete/{id}', 'QuoteController@delete')->name('delete');
 Route::get('/authorized/create', 'QuoteController@create')->name('create');
 Route::post('/authorized/create', 'QuoteController@insert')->name('create');
+Route::get('/restricted', function() {
+    return view('restricted');
+})->name('restricted');
