@@ -18,4 +18,8 @@ class Quote extends Model
     public function user(){
         return $this->belongsTo('\App\User','id','user_id');
     }
+    public function QuoteComments()
+    {
+        return $this->hasMany('App\QuoteComment', 'quote_id', 'id');
+    }
 }
