@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Quote extends Model
 {
+    protected $fillable = ['text'];
     //
     function scopeGetCurrentUsers($query,$currentUserId){
         return $query->where('user_id',$currentUserId);
@@ -14,5 +15,7 @@ class Quote extends Model
     function getAuthorAttribute($value){
         return strtoupper($value);
     }
-
+    public function user(){
+        return $this->belongsTo('\App\User','id','user_id');
+    }
 }
