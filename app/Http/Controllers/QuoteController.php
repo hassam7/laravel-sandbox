@@ -12,7 +12,9 @@ class QuoteController extends Controller
         $this->middleware('custom_auth');
    }
     public function index(){
-        return view('authorized.master')->with('Quotes',Quote::where('user_id',session('uid'))->paginate(20));
+        // return view('authorized.master')->with('Quotes',Quote::where('user_id',session('uid'))->paginate(20));
+        return view('authorized.master')->with('Quotes',Quote::GetCurrentUsers(session('uid'))->paginate(20));    
+        
     }
 
     public function detail($id){       
@@ -20,13 +22,15 @@ class QuoteController extends Controller
     }
 
      public function edit($id){
-        return view('authorized.detail');
+        return view('authorized.edit')->with('Quote',Quote::find($id));
     }
-
+    public function update(){
+        return 'Done';
+    }
      public function delete($id){
          $quote = Quote::find($id);
          if($quote!=null){
-            if($quote->delete())
+            if($quote->delete()) //Quote::destroy($id)
                 return view('authorized.delete',['status'=>'success','message'=>'Deleted Successfully']);
          }
         else
