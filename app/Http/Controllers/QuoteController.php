@@ -6,6 +6,7 @@ use Illuminate\Support\facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Quote;
+use App\User;
 class QuoteController extends Controller
 {
     function __construct() {
@@ -50,11 +51,19 @@ class QuoteController extends Controller
         if($validator->fails()){
             return redirect()->back()->withErrors($validator);
         }else{
+            $userId = session('uid');
+            $user = User::find($userId);
+
             $q = new Quote();
             $q->text = Input::get('quote_text');
             $q->author = Input::get('author');
-            $q->user_id = session('uid');
-            $q->save();
+           
+            $user->quotes()->save($q);
+          
+            // $user->quotes()->create([
+            //     'text'=>Input::get('quote_text'),
+            //     'author'=>Input::get('author')
+            // ]);
             return view('authorized.create')->with('quote_added','Quote added successfully');
         }
 
