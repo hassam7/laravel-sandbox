@@ -10,7 +10,7 @@ use App\User;
 class QuoteController extends Controller
 {
     function __construct() {
-        $this->middleware('custom_auth');
+        // $this->middleware('custom_auth');
    }
     public function index(){
         // return view('authorized.master')->with('Quotes',Quote::where('user_id',session('uid'))->paginate(20));

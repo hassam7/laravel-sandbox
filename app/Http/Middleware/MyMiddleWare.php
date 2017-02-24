@@ -15,10 +15,10 @@ class MyMiddleWare
      */
     public function handle($request, Closure $next)
     {
-        $logged_in = $request->session()->get('loggedin');
-        if($logged_in==null){
-             return redirect('/restricted');
-        }
+        // $logged_in = $request->session()->get('loggedin');
+        // if($logged_in==null){
+        //      return redirect('/restricted');
+        // }
         
         return $next($request);                    
     }
