@@ -12,13 +12,19 @@
     </head>
 
     <style>
+        #hid{
+            padding-bottom:40px;
+
+        }
         .container{
-            padding-top:90px;
         }
     </style>
     <body>
      @yield('messages')      
+     
     <div class="container">
+        <img class="img img-responsive" id="hid" src="http://placehold.it/1200x150">
+
         @section("nav")
             <div class="col-md-3">
                 <ul class="list-unstyled">
