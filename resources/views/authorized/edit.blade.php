@@ -18,14 +18,36 @@
 </style>
 
 <body>
+
     <div class="container">
+    
+
         <div class="col-md-3">
             <ul class="list-unstyled">
                 <li><a href="{{route('home')}}">Home</li>            
                 <li><a href="{{route('create')}}">Add New Quote</li>
                 <li><a href="{{route('logoff')}}">Log Out</a></li </ul>
         </div>
+         
+     
         <div class="col-md-9">
+       @if( count($errors) >0) 
+        <div class="alert alert-danger alert-dismissable">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             @foreach($errors->all() as $error)
+                <li>{{$error}}</li>
+             @endforeach
+        </div>
+       
+       @endif
+
+       @if (Session::has('success'))
+            <div class="alert alert-success alert-dismissable">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                <strong>{{ Session::get('success') }}</strong>
+            </div>
+
+       @endif
         @if(!isset($Quote) || $Quote==null)
              <div class="alert alert-danger alert-dismissable">
                 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -35,7 +57,7 @@
         @else
             <form class="form-create" method="POST" action="{{route('update')}}">
                 <h2 class="form-signin-heading">Quote Details</h2>
-
+                <input type="hidden" name="id" value="{{$Quote->id}}">
                 <div class="form-group">
                     <label for="quote_text" class="sr-only">Email address</label>
                     <textarea type="text" id="quote_text" name="quote_text" class="form-control">{{$Quote->text}}

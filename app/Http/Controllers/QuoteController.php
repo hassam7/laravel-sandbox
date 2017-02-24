@@ -26,7 +26,26 @@ class QuoteController extends Controller
         return view('authorized.edit')->with('Quote',Quote::find($id));
     }
     public function update(){
-        return 'Done';
+          $rules = [
+            'quote_text'=>'required|min:5|string',
+            'author'=>'required|min:5|string'
+        ];
+
+        $validator = Validator::make(Input::all(),$rules);
+        if($validator->fails()){
+            return redirect()->back()->withErrors($validator);
+        }else{
+            $id = Input::get('id');
+            $q = Quote::findOrFail($id);
+            $q->text=Input::get('quote_text');
+            $q->author=Input::get('author');
+            if($q->save()){
+                    \Session::flash('success', 'Sucessfully Updated');
+                    return redirect()->back();
+            }else{
+                return redirect()->back()->withErrors(['msg'=>'Can not Update']);                
+            }
+        }
     }
      public function delete($id){
          $quote = Quote::find($id);
