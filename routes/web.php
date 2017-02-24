@@ -34,6 +34,3 @@ Route::post('/authorized/create', 'QuoteController@insert')->name('create');
 Route::get('/restricted', function() {
     return view('restricted');
 })->name('restricted');
-Auth::routes();
-
-Route::get('/home', 'HomeController@index');
