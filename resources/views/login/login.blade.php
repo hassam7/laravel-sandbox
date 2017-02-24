@@ -14,6 +14,7 @@
    
     </head>
     <body>
+    @include('commons.navbar')
     <div class="container">
        
         @if( count($errors) >0 ) 

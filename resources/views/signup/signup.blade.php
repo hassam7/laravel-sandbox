@@ -13,6 +13,8 @@
     <script src="{{asset('js/additional-methods.js')}}" type="text/javascript"></script>
     </head>
     <body>
+    @include('commons.navbar')
+
     <div class="container">
        
        {{-- @if( count($errors) >0) 
